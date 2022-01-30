@@ -19,9 +19,9 @@ Route::get('/articles/detail/{id}', [
     'detail',
 ]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    ArticleController::class, 'index'
+]);
 
 Route::get('/articles/add', [ArticleController::class, 'add']);
 

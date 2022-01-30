@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
+
     @extends("layouts.app")
 
     @section("content")
@@ -38,5 +32,3 @@
             @endforeach
         </div>
     @endsection
-</body>
-</html>
