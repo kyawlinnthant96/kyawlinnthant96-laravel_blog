@@ -19,7 +19,7 @@ class CategoryApiController extends Controller
         $category->name = request()->name;
         $category->save();
 
-        return $cateogry;
+        return $category;
     }
 
     public function show($id)

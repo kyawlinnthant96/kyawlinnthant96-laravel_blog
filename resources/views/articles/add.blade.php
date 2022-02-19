@@ -9,7 +9,7 @@
 
     @section('content')
         <div class="container">
-
+            {{-- check error with error variable --}}
             @if ($errors->any())
                 <div class="alert alert-warning">
                     <ol>

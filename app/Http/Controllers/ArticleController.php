@@ -30,6 +30,27 @@ class ArticleController extends Controller
         ]);
     }
 
+    // Article Edit
+    public function edit($id)
+    {
+        $data = Article::find($id);
+        $option = Category::all();
+
+        return view('articles.edit', [
+            'article' => $data,
+            'categories' => $option
+        ]);
+    }
+    public function update()
+    {
+        $article = new Article();
+        $article->title = request()->title;
+        $article->body = request()->body;
+        $article->category_id = request()->category_id;
+        $article->save();
+        return redirect('/articles');
+    }
+
     public function add()
     {
         $data = Category::all();
@@ -40,12 +61,13 @@ class ArticleController extends Controller
 
     public function create()
     {
+        // check valid
         $validator = validator(request()->all(), [
             'title' => 'required',
             'body' => 'required',
             'category_id' => 'required',
         ]);
-
+        // fail back with error
         if($validator->fails()) {
             return back()->withErrors($validator);
         }
